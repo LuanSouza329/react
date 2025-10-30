@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>React Basics</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function Exemplo1() {
+
+      const [contador, setContado] = React.useState(0);
+      const contRef = React.useRef(contador);
+      const intervalRef = React.useRef(null);
+
+
+      React.useEffect(() => {
+        contRef.current = contador;
+      }, [contador]);
+
+      const clicar = () => {
+        intervalRef.current = setInterval(() => {
+          setContado(contRef.current + 1);
+        }, 1000);
+      };
+
+
+      const parar = () => {
+        clearInterval(intervalRef.current);
+      };
+
+
+      React.useEffect(() => {
+        console.log("O valor do contador é " + contador);
+
+      }, [contador]);
+
+      return (
+        <>
+          <p>{contador}</p>
+          <button onClick={() => setContado(contador + 1)}>Aumentar</button>
+          <button onClick={() => setContado(0)}>reset</button>
+          <button onClick={clicar}>Auto Click</button>
+          <button onClick={parar}>Parar</button>
+        </>
+      );
+    }
+
+    function App() {
+
+      return (
+        <>
+          <Exemplo1 />
+        </>
+      )
+    }
+
+    const container = document.querySelector('.js-container');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />)
+
+
+  </script>
+</body>
+
+</html>

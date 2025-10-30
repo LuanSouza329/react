@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>React Basics</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function Input() {
+      const [texto, setTexto] = React.useState("Digite seu texto");
+
+      function dizerOla(e) {
+        setTexto("Olá " + e.target.value)
+      }
+
+      return (
+        <>
+          <input
+            onChange={dizerOla}
+            placeholder="Digite seu nome"
+          />
+          <p>{texto}</p>
+        </>
+      );
+    }
+
+    function App() {
+      return (
+        <>
+          <Input />
+        </>
+      );
+    }
+
+    const container = document.querySelector('.js-container');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />)
+
+
+  </script>
+</body>
+
+</html>

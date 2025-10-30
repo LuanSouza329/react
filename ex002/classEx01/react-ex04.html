@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Basics</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            gap: 10px;
+        }
+
+        input {
+            padding: 10px;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            background-color: rgb(65, 65, 239);
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+        
+        function App() {
+            const [showPassword, setShowPassword] = React.useState(true);
+7
+
+
+            function showPass (){
+                if(showPassword){
+                    setShowPassword(false);
+                }else{
+                    setShowPassword(true);
+                }
+            }
+
+            return (
+                <div class="container">
+                    <input placeholder="Email"></input>
+                    <input placeholder="password" type={showPassword ? "text" : "password"}></input>
+
+                    <div class="btn-container">
+                        <button class="btn">Login</button>
+                        <button class="btn" >Sign up</button>
+                        <button class="btn" onClick={showPass}>Show</button>
+                    </div>
+                </div>
+            );
+        }
+
+
+        const container = document.querySelector('.js-container');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />)
+
+
+    </script>
+</body>
+
+</html>

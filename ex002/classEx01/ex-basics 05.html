@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>React Basics</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function Semaforo() {
+      const [cor, setCor] = React.useState("red");
+
+      function mudarCor() {
+        if (cor === "red") {
+          setCor("yellow");
+        } else if (cor === "yellow") {
+          setCor("green");
+        } else {
+          setCor("red");
+        }
+      }
+
+      return (
+        <>
+          <div style={{ backgroundColor: cor, width: "100px", height: "100px", borderRadius: "50%" }}></div>
+          <button onClick={mudarCor}>Mudar</button>
+        </>
+      );
+    }
+
+
+
+    function App() {
+
+      return (
+        <>
+          <Semaforo />
+        </>
+      );
+    }
+
+    const container = document.querySelector('.js-container');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />)
+
+
+  </script>
+</body>
+
+</html>

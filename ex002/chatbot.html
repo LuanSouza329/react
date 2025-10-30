@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chatbot</title>
+  <style>
+    @charset 'UTF-8';
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1em;
+    }
+
+    .js-container {
+      margin: auto;
+      padding: 10px;
+    }
+
+    button.send-button {
+      background-color: rgb(25, 135, 84);
+      color: white;
+      padding: 12px 20px;
+      margin-left: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .chat-input {
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.428);
+      margin: 10px;
+      flex-grow: 1;
+    }
+
+    input {
+      padding: 5px;
+    }
+
+    .chat-input-container {
+      display: flex;
+      margin-bottom: 60px;
+    }
+
+    .app-container {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      max-width: 600px;
+
+      height: 95vh;
+    }
+
+    .chat-message-user {
+      display: flex;
+      justify-content: right;
+      align-items: start;
+    }
+
+
+    .chat-message-robot {
+      display: flex;
+      justify-content: left;
+      align-items: start;
+    }
+
+    .chat-message-text {
+      background-color: rgb(238, 238, 238);
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      margin: 0px 10px;
+      max-width: 300px;
+    }
+
+    .chat-message-profile {
+      width: 45px;
+    }
+
+    .chat-messages-container {
+      flex-grow: 1;
+      margin-top: 20px;
+      overflow: scroll;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function ChatInput({ chatMessages, setChatMessages }) {
+      const [inputText, setInputText] = React.useState("");
+
+      function sendMessagaWithEnter(event) {
+        if (event.key === "Enter") {
+          sendMessage();
+        }
+
+        if (event.key === "Escape") {
+          setInputText("");
+        }
+      }
+
+
+      function saveInputText(event) {
+        setInputText(event.target.value);
+      }
+
+      async function sendMessage() {
+
+        setInputText('');
+
+        const newChatMessages = [
+          ...chatMessages,
+          {
+            message: inputText,
+            sender: "user",
+            id: crypto.randomUUID()
+          },
+        ]
+
+        setChatMessages([
+          ...newChatMessages,
+          // This creates a temporary Loading... message.
+          // Because we don't save this message in newChatMessages,
+          // it will be remove later, when we add the response.
+          {
+            message: 'Loading...',
+            sender: 'robot',
+            id: crypto.randomUUID()
+          }
+        ]);
+
+
+        const response = await Chatbot.getResponseAsync(inputText);
+
+        setChatMessages([
+          ...newChatMessages,
+          {
+            message: response,
+            sender: "robot",
+            id: crypto.randomUUID()
+          },
+
+        ]);
+
+      }
+
+      return (
+        <div className="chat-input-container">
+          <input placeholder="Envie a sua mensagem" size="30"
+            onChange={saveInputText}
+            onKeyDown={sendMessagaWithEnter}
+            value={inputText}
+            class="chat-input"
+          />
+          <button
+            onClick={sendMessage}
+            class="send-button"
+            id="send-button">
+            Send</button>
+        </div>
+      );
+    }
+
+    function ChatMessage({ message, sender }) /*Desestruturação diretamente na chamada*/ {
+      /*const { message, sender } = props;*/
+
+      /* if (sender === "robot") {
+        return (
+          <div>
+            <img src="robot.png" width="50" />
+            {message}
+          </div>
+        );
+      }*/
+
+      return (
+        /*If curto: Sender igual "robot" então faça <img src="robot.png">*/
+
+        <div className={sender === "user"
+          ? "chat-message-user"
+          : "chat-message-robot"
+        }>
+          {sender === "robot" && <img src="robot.png" className="chat-message-profile" />}
+          <div className="chat-message-text">
+            {message}
+          </div>
+          {sender === "user" && <img src="user.png" className="chat-message-profile" />}
+        </div>
+      );
+    }
+
+    function ChatMessages({ chatMessages }) {
+      const chatMessagesRef = React.useRef(null);
+
+      React.useEffect(()=>{
+        const containerElem = chatMessagesRef.current;
+        if(containerElem){
+          containerElem.scrollTop = containerElem.scrollHeight;
+        }
+      }, [chatMessages]);
+
+      //const [chatMessages, setChatMessages] = array;
+
+      // const chatMessages = array[0];
+      // const setChatMessages = array[1];
+
+      return (
+        <div className="chat-messages-container" ref={chatMessagesRef}>
+          {chatMessages.map((chatMessage) => {
+            return (
+              <ChatMessage
+                message={chatMessage.message}
+                sender={chatMessage.sender}
+                key={chatMessage.id}
+              />
+            );
+          })}
+        </div>
+      );
+    }
+
+    function App() {
+
+      const [chatMessages, setChatMessages] = React.useState(
+        [{
+          message: "Hello Chatbot",
+          sender: "user",
+          id: "id1"
+        }, {
+          message: "Hello How can I help you?",
+          sender: "robot",
+          id: "id2"
+        }, {
+          message: "Can you get me todays date?",
+          sender: "user",
+          id: "id3"
+        }, {
+          message: "Today is September 27",
+          sender: "robot",
+          id: "id4"
+        }]);
+
+      return (
+        <div className="app-container">
+          <ChatMessages
+            chatMessages={chatMessages}
+          />
+          <ChatInput
+            chatMessages={chatMessages}
+            setChatMessages={setChatMessages}
+          />
+        </div>
+      );
+    }
+
+
+    const container = document.querySelector('.js-container');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />);
+
+  </script>
+</body>
+
+</html>
+
+<!-- Podemos chamar um componente usando algo que se chama sintaxe componenete que é a mesma do html <ChatInput>
+</ChatInput>, caso não receba nada podemos chamar diretamente
+<ChatInput /> 
+
+ Uma outra maneira bem legal de juntas tags é usando o fragmentos que consiste de <> </> Abrir e fechar tags e juntar
+todos os componentes dentro, assim não precisamos usar tags desnecessárias no nosso código -->
