@@ -1,11 +1,18 @@
 import "./Title.css";
-export default function Title({ className, element }) {
+export default function Caixa({ className, element }) {
+
+    function alerta (event){
+        event.target.style.backgroundColor = "white";
+    }
+
     return (
         <>
-            <h1
-                className={className}>
-                {element} 
-            </h1>
+            <div
+                className={className} onMouseOver={alerta} onMouseOut={(event)=>{
+                    event.target.style.backgroundColor = ""
+                }}>
+                {element}
+            </div>
         </>
     );
 }

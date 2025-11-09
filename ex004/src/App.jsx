@@ -1,11 +1,17 @@
-import  Title  from './components/Title'
+import Caixa from './components/Title';
+import { Lista } from './components/Lista';
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <Title className="teste" element={"Texto recebido pelo componente"} />
+      <Caixa className="teste" element={"Lorem"} />
+      <Caixa className="teste" element={"nada"} />
+      <Caixa className="teste" element={"na"} />
+
+      <Lista />
+
     </>
   )
 }
