@@ -9,7 +9,7 @@ export function Lista() {
             <h1>Pessoas</h1>
             <ul>
                 {
-                    lista.map((carros)=>
+                    lista.map((carros) =>
                         <li key={carros.id}>I am a  {console.log} </li>
                     )
                 }
