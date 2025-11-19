@@ -10,16 +10,18 @@ export function HomePage({ cart }) {
 
 
     useEffect(() => {
-        axios.get("/api/products")
-            .then((response) => {
-                setProducts(response.data);
-            });
+        const getHomeData = async () => {
+            const response = await axios.get("/api/products")
+            setProducts(response.data);
+        }
+
+        getHomeData();
     }, []);
 
 
     return (
         <>
-            <Header  cart={cart}/>
+            <Header cart={cart} />
             <title>E-commerce Project</title>
 
             <div className="home-page">
