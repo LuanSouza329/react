@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { PostCard } from "./miniComponents/PostCard";
-import "./Post.css"
+import { Spinner } from "./miniComponents/Spinner";
+import { Heart } from "./miniComponents/Heart";
 
 export function Posts() {
 
@@ -37,11 +38,15 @@ export function Posts() {
 
     return (
         <div>
+            <Heart />
+
+            <Spinner />
+
             {loading ? (
-                <div className="spinner">Carregando...</div>
+                <Spinner />
             ) : (
                 posts.map((post) => (
-                    <PostCard key={post.id} title={post.title} body={post.body} />
+                    <PostCard key={post.id} title={post.title} body={post.body} className={"post-container"} />
                 ))
             )}
         </div>
