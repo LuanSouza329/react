@@ -4,7 +4,7 @@ import { OderSummary } from "../checkout/OrderSummary"
 import { PaymentSummary } from "./PaymentSummary";
 import "./checkout-header.css";
 import "./CheckoutPage.css";
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart, loadCart }) {
 
     const [deliveryOptions, setDeliveryOptions] = useState([]);
     const [paymentSummary, setPaymentSummary] = useState(null);
@@ -15,12 +15,21 @@ export function CheckoutPage({ cart }) {
             let response = await axios.get("/api/delivery-options?expand=estimatedDeliveryTime")
             setDeliveryOptions(response.data);
 
-            response = await axios.get("/api/payment-summary")
-            setPaymentSummary(response.data);
+
         }
 
         fetchCheckoutData();
     }, []);
+
+    useEffect(() => {
+        const fectSummaryPayment = async () => {
+
+            const response = await axios.get("/api/payment-summary")
+            setPaymentSummary(response.data);
+        }
+
+        fectSummaryPayment();
+    },[cart]);
 
 
     return (
@@ -50,7 +59,7 @@ export function CheckoutPage({ cart }) {
                 <div className="page-title">Review your order</div>
 
                 <div className="checkout-grid">
-                    <OderSummary cart={cart} deliveryOptions={deliveryOptions} />
+                    <OderSummary cart={cart} deliveryOptions={deliveryOptions} loadCart={loadCart} />
                     <PaymentSummary paymentSummary={paymentSummary} />
                 </div>
             </div>
