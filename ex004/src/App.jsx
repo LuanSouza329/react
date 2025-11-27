@@ -1,13 +1,11 @@
-import Caixa from './components/Title';
-import { Lista } from './components/Lista';
-import { Posts } from './components/Posts';
+import { Paises } from './components/paises'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <Posts />
+      <Paises />
     </>
   )
 }
