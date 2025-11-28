@@ -1,11 +1,13 @@
-import { Paises } from './components/paises'
 import './App.css'
+import { Contador } from './components/contador'
+import { Teste } from './components/Teste'
 
 function App() {
 
   return (
     <>
-      <Paises />
+      <Contador />
+      <Teste />
     </>
   )
 }
