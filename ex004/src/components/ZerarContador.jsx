@@ -1,10 +1,6 @@
-export function ZerarContador ({setContador, className}){
-
-    function zerar (){
-        setContador(0);
-    }
+export function ZerarContador ({className, handleZerar}){
 
     return(
-        <button onClick={zerar} className={className}>Zerar</button>
+        <button onClick={handleZerar} className={className}>Zerar</button>
     );
 }

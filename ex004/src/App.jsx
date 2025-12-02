@@ -1,6 +1,7 @@
 import './App.css'
 import { Contador } from './components/contador'
 import { Teste } from './components/Teste'
+import { Form } from './components/Form'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <Contador />
       <Teste />
+      <Form />
     </>
   )
 }
