@@ -6,7 +6,9 @@ import "./OrdersPage.css";
 import dayjs from "dayjs";
 import { formatMoney } from "../../utils/money";
 
-export function OrdersPage({ cart }) {
+export function OrdersPage({ cart, loadCart }) {
+    window.axios = axios;
+
 
     const [orders, setOrders] = useState([]);
 
@@ -50,7 +52,7 @@ export function OrdersPage({ cart }) {
                                             <div>{order.id}</div>
                                         </div>
                                     </div>
-                                    <OrdersDetails order={order} />
+                                    <OrdersDetails order={order} loadCart={loadCart} />
                                 </div>
                             </>
                         );

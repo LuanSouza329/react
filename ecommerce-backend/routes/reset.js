@@ -11,6 +11,7 @@ import { defaultOrders } from '../defaultData/defaultOrders.js';
 
 const router = express.Router();
 
+
 router.post('/', async (req, res) => {
   await sequelize.sync({ force: true });
 

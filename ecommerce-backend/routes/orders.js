@@ -6,6 +6,7 @@ import { CartItem } from '../models/CartItem.js';
 
 const router = express.Router();
 
+
 router.get('/', async (req, res) => {
   const expand = req.query.expand;
   let orders = await Order.unscoped().findAll({ order: [['orderTimeMs', 'DESC']] }); // Sort by most recent
