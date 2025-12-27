@@ -1,30 +1,44 @@
 import './App.css'
 
-import { BrowserRouter, Route, Routes, Link, NavLink } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Route,
+  createRoutesFromElements,
+  RouterProvider
+} from "react-router-dom";
 
 /* Pages */
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 
+/* Help Section */
+import { Help } from './pages/Help';
+import { Faq } from './pages/help/Faq';
+import { Contact } from './pages/help/Contact';
+
+import { Header } from './Hearder';
+
+/* Router tree */
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Header />}>
+      <Route index element={<Home />} />
+      <Route path='about' element={<About />} />
+
+      <Route path='help' element={<Help />}>
+          <Route path='faq' element={<Faq />}/>
+          <Route path='contact' element={<Contact />}/>
+      </Route>
+    </Route>
+  )
+)
+
+
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <header>
-          <nav>
-            <h1>Jobarrouter</h1>
-            <NavLink to={"/"}> Home </NavLink>
-            <NavLink to={"about"}> About </NavLink>
-          </nav>
-        </header>
-        <main>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path='/about' element={<About />} />
-          </Routes>
-        </main>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </>
   )
 }
