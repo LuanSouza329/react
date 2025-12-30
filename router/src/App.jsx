@@ -10,6 +10,8 @@ import {
 /* Pages */
 import { Home } from './pages/Home';
 import { About } from './pages/About';
+import { NotFound } from './pages/help/NotFound';
+
 
 /* Help Section */
 import { Help } from './pages/Help';
@@ -29,6 +31,8 @@ const router = createBrowserRouter(
           <Route path='faq' element={<Faq />}/>
           <Route path='contact' element={<Contact />}/>
       </Route>
+
+      <Route path='*' element={<NotFound />} />
     </Route>
   )
 )
