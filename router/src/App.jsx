@@ -1,4 +1,3 @@
-import './App.css'
 
 import {
   createBrowserRouter,
@@ -12,15 +11,18 @@ import { Header } from './Hearder';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { NotFound } from './pages/help/NotFound';
+import { CareersError } from "./pages/careers/CareersError";
 
 
 /* Help Section */
 import { Help } from './pages/Help';
 import { Faq } from './pages/help/Faq';
 import { Contact } from './pages/help/Contact';
+
 /* Careers Section */
 import { CareersLayout } from './pages/careers/CareersLayout';
 import { Careers, careersLoader } from './pages/careers/Careers';
+import { CareersDetails, careersDetailsLoader } from './pages/careers/CareesDetails';
 
 /* Router tree */
 const router = createBrowserRouter(
@@ -34,12 +36,18 @@ const router = createBrowserRouter(
         <Route path='contact' element={<Contact />} />
       </Route>
 
-      <Route path='careers' element={<CareersLayout />}>
+      <Route path='careers' element={<CareersLayout />}           errorElement={<CareersError />}>
         <Route
           index
-          element={<Careers />} 
+          element={<Careers />}
           loader={careersLoader}
-          />
+        />
+
+        <Route
+          path=':id'
+          element={<CareersDetails />}
+          loader={careersDetailsLoader}
+        />
       </Route>
 
       <Route path='*' element={<NotFound />} />

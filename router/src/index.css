@@ -144,6 +144,11 @@ form label span {
 }
 
 /* careers details */
-
+ .carees-details {
+  background-color: rgba(0, 0, 0, 0.207);
+  padding: 20px;
+  border-radius: 4px;
+  margin: 20px 0;
+ }
 
 /* breadcrumbs */
