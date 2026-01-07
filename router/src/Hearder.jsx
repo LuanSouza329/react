@@ -1,4 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { BreadCrumbs } from "../component/BreadCrumbs";
 export function Header() {
     return (
         <div className="root-layout">
@@ -10,7 +11,9 @@ export function Header() {
                     <NavLink to={"/help"}> Help </NavLink>
                     <NavLink to={"/careers"}> Careers </NavLink>
                 </nav>
+                <BreadCrumbs />
             </header>
+
             <main>
                 <Outlet />
             </main>
