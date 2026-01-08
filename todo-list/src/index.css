@@ -7,6 +7,7 @@
 
 :root {
     --body: rgb(233, 230, 230);
+    --main: rgb(242, 245, 245);
 }
 
 body {
@@ -22,14 +23,15 @@ body {
     grid-column: 2 / 3;
     border-radius: 5px;
     width: 100%;
-    background-color: azure;
+    background-color:var(--main);
 }
 
 .search {
     display: flex;
     padding: 5px;
     justify-content: space-between;
-    border: 1px solid black;
+    width: 98%;
+    margin: 15px 10px;
 }
 
 .search-box {
@@ -58,6 +60,12 @@ body {
 }
 
 .search>button {
-    padding: 2px 15px;
+    padding: 7px 20px;
     border-radius: 4px;
+    background-color: rgb(131, 112, 236);
+    color: white;
+    font-weight: bold;
+    border: none;
+    text-shadow: 1px 1px 1px black;
+    cursor: pointer;
 }
