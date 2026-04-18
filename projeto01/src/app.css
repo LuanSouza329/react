@@ -7,47 +7,71 @@
 
 :root {
   --primary-color: #007bff;
+  --primary-color-hover: #0056b3;
   --secondary-color: #f8fafb;
   --background-color: #f8f9fa;
   --text-color: #333;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-.lista-menu {
-  display: flex;
-  gap: 10px;
-  padding: 0px 20px;
-  list-style: none;
-}
-
-.links {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.btn_hamburguer {
-  display: none;
-  border: none;
-  background: transparent;
 }
 
 body {
   scroll-behavior: smooth;
 }
 
+.App {
+  display: grid;
+  grid-template-columns: auto 25% 37% 37% auto;
+  gap: 10px;
+  width: 98vw;
+}
 
 .perfil-section {
+  grid-column: 2 / 3;
+  position: sticky;
+  z-index: 1000;
+  top: 65px;
+  height: 87vh;
+  border-radius: 10px;
+
   display: flex;
+  flex-direction: column;
   align-items: center;
+  padding: 15px;
+  gap: 20px;
+  background-color: var(--secondary-color);
+}
+
+.content {
+  grid-column: 3 / 5;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 73vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.foto-perfil {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border: 5px solid var(--primary-color);
+  cursor: pointer;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.foto-perfil:hover {
+  transform: scale(1.05);
+}
+
+.perfil-section>.perfil-description {
+  text-align: center;
+  padding: 8px;
+  text-indent: 20px;
+  max-width: 1280px;
 }
 
 .social-links {
@@ -73,79 +97,100 @@ body {
   filter: grayscale(0);
 }
 
-@media screen and (max-width: 768px) {
-  .btn_hamburguer {
-    display: block;
-  }
+.skill-section {
+  padding: 10px;
+  border-radius: 10px;
 
-  .lista-menu {
-    display: none;
-    flex-direction: column;
-    gap: 5;
-    position: absolute;
-    top: 55px;
-    right: 1px;
-    background-color: white;
-    padding: 10px;
-    min-width: 200px;
-    min-height: 500px;
-    border-radius: 5px 0px 0px 5px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-    animation: slideIn 0.3s ease-in-out;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(100%);
-    }
+.education,
+.projects {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+.education-list {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
 
-  ul {
-    list-style: none;
-  }
+.education-item {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  padding: 10px;
+  border-left: 10px solid var(--primary-color);
+  transition: border-left-width 0.3s ease-in-out;
+}
 
-  .lista-open {
+.education-item:hover {
+  border-left: 20px solid var(--primary-color-hover);
+}
+
+
+
+.project-list {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  padding: 10px;
+  border-left: 10px solid var(--primary-color);
+  transition: border-left-width 0.3s ease-in-out;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.project-image {
+  width: 15%;
+  border-radius: 10px;
+  height: auto;
+  background-color: red;
+}
+
+.project-item:hover {
+  border-left: 20px solid var(--primary-color-hover);
+}
+
+.project-item > h3 {
+  background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 998px) {
+  .App {
     display: flex;
     flex-direction: column;
+    width: 97vw;
+  }
+
+  .content {
+    max-width: none;
   }
 
   .perfil-section {
+    height: 65vh;
+    position: inherit;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px;
     background-color: var(--secondary-color);
-  }
-
-  .foto-perfil {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border: 5px solid var(--primary-color);
-    cursor: pointer;
-
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .foto-perfil:hover {
-    transform: scale(1.1);
-  }
-
-  .perfil-section>.perfil-description {
-    margin-top: 20px;
-    text-indent: 20px;
-    font-size: 18px;
-    color: #333;
-    padding: 10px;
   }
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import BtnMenu from './BtnMenu';
+import BtnMenu from "../topo/BtnMenu"; // Certifique-se de que o caminho para BtnMenu está correto
 import './topo.css';
 
 export function Topo() {

@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "ano": "2025",
+        "titulo": "Fluent Academy",
+        "imagem": "imagens/Fluent academy.jpg",
+        "alt": "Projeto Fluent Academy",
+        "resumo": "Landing page criada para apresentar a escola de idiomas Fluent Academy com foco em hierarquia visual, clareza e navegação.",
+        "descricao": "Projeto desenvolvido com HTML, CSS e JavaScript para construir uma interface moderna, responsiva e alinhada à proposta da marca.",
+        "tecnologias": ["HTML", "CSS", "JavaScript"],
+        "demoUrl": "https://luansouza329.github.io/Estudos/HTML/projetos/fluentAcademy/",
+        "codigoUrl": "https://github.com/LuanSouza329/Estudos"
+    },
+    {
+        "id": 2,
+        "ano": "2025",
+        "titulo": "Conversor de Moedas",
+        "imagem": "imagens/conversor.png",
+        "alt": "Projeto Conversor de Moedas",
+        "resumo": "Aplicação que converte valores entre moedas em tempo real com uma interface simples e objetiva.",
+        "descricao": "Utiliza JavaScript, HTML e CSS, além de requisições assíncronas com fetch e async/await para consumir dados de uma API externa.",
+        "tecnologias": ["HTML", "CSS", "JavaScript", "API"],
+        "demoUrl": "https://luansouza329.github.io/Estudos/HTML/projetos/conversor/",
+        "codigoUrl": "https://github.com/LuanSouza329/Estudos/tree/main/HTML/projetos/conversor"
+    },
+    {
+        "id": 3,
+        "ano": "2024",
+        "titulo": "Projeto Hero",
+        "imagem": "imagens/Avengers.png",
+        "alt": "Projeto Hero",
+        "resumo": "Landing page temática inspirada em heróis para praticar composição visual, navegação e responsividade.",
+        "descricao": "Projeto voltado à consolidação dos fundamentos de HTML e CSS, com seções de destaque, imagens temáticas e organização de layout.",
+        "tecnologias": ["HTML", "CSS"],
+        "demoUrl": "https://luansouza329.github.io/Estudos/HTML/projetos/hero/",
+        "codigoUrl": "https://github.com/LuanSouza329/Estudos"
+    },
+    {
+        "id": 4,
+        "ano": "2024",
+        "titulo": "Projeto Cordel",
+        "imagem": "imagens/projeto-02-cordel.jpg",
+        "alt": "Projeto Cordel",
+        "resumo": "Página inspirada no estilo cordel moderno, com ênfase em semântica, leitura e impacto visual.",
+        "descricao": "Desenvolvido durante o Curso em Vídeo para exercitar estrutura semântica, tipografia, composição e responsividade básica.",
+        "tecnologias": ["HTML", "CSS"],
+        "demoUrl": "https://luansouza329.github.io/Estudos/HTML/projetos/Cordel/",
+        "codigoUrl": "https://github.com/LuanSouza329/Estudos"
+    }
+]
