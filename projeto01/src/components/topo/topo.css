@@ -1,7 +1,5 @@
 header {
-    grid-column: 1 / 5;
-    
-    
+    grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +39,7 @@ header {
     background: transparent;
 }
 
-@media screen and (max-width: 998px) {
+@media screen and (max-width: 768px) {
     header {
         z-index: 1001;
     }

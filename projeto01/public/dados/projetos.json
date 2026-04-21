@@ -1,9 +1,10 @@
+
 [
     {
         "id": 1,
         "ano": "2025",
         "titulo": "Fluent Academy",
-        "imagem": "imagens/Fluent academy.jpg",
+        "imagem": "../src/assets/Fluent academy.jpg",
         "alt": "Projeto Fluent Academy",
         "resumo": "Landing page criada para apresentar a escola de idiomas Fluent Academy com foco em hierarquia visual, clareza e navegação.",
         "descricao": "Projeto desenvolvido com HTML, CSS e JavaScript para construir uma interface moderna, responsiva e alinhada à proposta da marca.",
@@ -15,7 +16,7 @@
         "id": 2,
         "ano": "2025",
         "titulo": "Conversor de Moedas",
-        "imagem": "imagens/conversor.png",
+        "imagem": "../src/assets/conversor.png",
         "alt": "Projeto Conversor de Moedas",
         "resumo": "Aplicação que converte valores entre moedas em tempo real com uma interface simples e objetiva.",
         "descricao": "Utiliza JavaScript, HTML e CSS, além de requisições assíncronas com fetch e async/await para consumir dados de uma API externa.",
@@ -27,7 +28,7 @@
         "id": 3,
         "ano": "2024",
         "titulo": "Projeto Hero",
-        "imagem": "imagens/Avengers.png",
+        "imagem": "../src/assets/Avengers.png",
         "alt": "Projeto Hero",
         "resumo": "Landing page temática inspirada em heróis para praticar composição visual, navegação e responsividade.",
         "descricao": "Projeto voltado à consolidação dos fundamentos de HTML e CSS, com seções de destaque, imagens temáticas e organização de layout.",
@@ -39,7 +40,7 @@
         "id": 4,
         "ano": "2024",
         "titulo": "Projeto Cordel",
-        "imagem": "imagens/projeto-02-cordel.jpg",
+        "imagem": "../src/assets/projeto-02-cordel.jpg",
         "alt": "Projeto Cordel",
         "resumo": "Página inspirada no estilo cordel moderno, com ênfase em semântica, leitura e impacto visual.",
         "descricao": "Desenvolvido durante o Curso em Vídeo para exercitar estrutura semântica, tipografia, composição e responsividade básica.",

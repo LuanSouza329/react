@@ -29,7 +29,7 @@ function Projects() {
   }, []);
 
   return (
-    <div className="projects">
+    <div className="projects" id='projetos'>
       <h2>Projetos</h2>
 
       <div className="project-list">

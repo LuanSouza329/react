@@ -6,10 +6,9 @@ import Projects from "./components/Projects";
 import "./app.css";
 function App() {
   return (
-    <main className="App">
+    <main className="App" id="home">
       <Topo />
         <PerfilSection />
-
         <section className="content">
           <Skills />
           <Education />

@@ -5,7 +5,7 @@ const educationData = [
 
 function Education() {
   return (
-    <div className="education" id="education">
+    <div className="education" id="educacao">
       <h2>Educação</h2>
         <div className="education-list">
           {educationData.map((edu, index) => (

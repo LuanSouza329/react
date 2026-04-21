@@ -4,7 +4,12 @@ import './topo.css';
 
 export function Topo() {
     const [isOpen, setIsOpen] = useState(false);
-    const links = ['Home', 'Sobre', 'Contato', 'Projetos'];
+    const links = [
+        {linkName: "Home", id:"#home"},
+        {linkName: "Skills", id: "#skills"},
+        {linkName: "Educação", id:"#educacao"},
+        {linkName: "Projeto", id:"#projetos"}
+    ];
 
     return (
         <header>
@@ -17,14 +22,14 @@ export function Topo() {
                     id="menu-principal"
                     className={`lista-menu ${isOpen ? 'lista-open' : ''}`}
                 >
-                    {links.map((link) => (
-                        <li key={link}>
+                    {links.map((link, index) => (
+                        <li key={index}>
                             <a
-                                href="#"
+                                href={link.id}
                                 className='links'
                                 onClick={() => setIsOpen(false)}
                             >
-                                {link}
+                                {link.linkName}
                             </a>
                         </li>
                     ))}
