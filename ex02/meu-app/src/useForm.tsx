@@ -54,6 +54,17 @@ function useForm(fields: FormFields[]) {
         }))
     }
 
+    function handleSubmit (onSubmit: React.FormEvent<HTMLFormElement>) {
+        onSubmit.preventDefault();
+
+        fields.forEach(field => validateField(field.name, values[field.name]));
+
+        const hasErrors = Object.values(errors).some(error => error !== "");
+        if (!hasErrors) {
+            return onSubmit;
+        }
+    }
+
     return {
         values,
         errors,
