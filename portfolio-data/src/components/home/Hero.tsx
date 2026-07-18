@@ -59,10 +59,10 @@ export default function Hero({ name, role }: HeroProps) {
                     flex
                     gap-4
                 ">
-                    <Button>
+                    <Button variant="secondary">
                         Botão
                     </Button>
-                    
+
                     <Button>
                         Botão
                     </Button>
