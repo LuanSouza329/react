@@ -1,22 +1,32 @@
-type ButtonProps = {
-    children: React.ReactNode
-    variant?: "primary" | "secondary"
+type ButtonProps = React.ComponentProps<"button"> & { //Passa todas as funções nativas do HTML
+  variant?: "primary" | "secondary"
 };
 
-export default function Button ({children, variant}: ButtonProps){
-    return (
-        <button className={`
-         rounded-lg
-         px-6
-         py-3
-         font-semibold
-         transition-colors
+function cn(...classes: Array<string | undefined>) {
+    return classes.filter(Boolean).join(" ");
+}
 
-         ${variants[variant ?? "primary"]}
-        `}>
-            {children}
-        </button>
-    )
+export default function Button({
+  children,
+  className,
+  variant = "primary",
+  ...props }: ButtonProps) {//Props agrupa dentro de um objeto
+
+  return (
+    <button
+      {...props} //espalha em um obj em propriedades
+      className={cn(
+        `
+        rounded-lg
+        px-6
+        py-3
+      `,
+        variants[variant],
+        className
+      )}>
+      {children}
+    </button>
+  )
 }
 
 const variants = {
