@@ -1,3 +1,4 @@
+import Container from "../ui/Container";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import NavbarActions from "./NavbarActions";
@@ -5,11 +6,20 @@ import NavbarActions from "./NavbarActions";
 export default function Navbar() {
     return (
         <header>
-            <Logo />
+            <Container
+                className="
+                flex
+                items-center
+                justify-between
+                p-2
+            "
+        >
+                <Logo />
 
-            <Navigation />
+                <Navigation />
 
-            <NavbarActions />
+                <NavbarActions />
+            </Container>
         </header>
     );
 }

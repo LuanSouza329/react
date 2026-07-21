@@ -1,22 +1,24 @@
 import Link from "next/link";
+import { navigation } from "@/data/navigation";
+import { link } from "fs";
 export default function Navigation() {
     return (
-        <nav>
-            <Link href="/home">
-                Home
-            </Link>
-
-            <Link href="/projetos">
-                Projetos
-            </Link>
-
-            <Link href="/sobre">
-                Sobre
-            </Link>
-
-            <Link href="/contato">
-                Contato
-            </Link>
+        <nav 
+            className="
+                flex
+                gap-6
+            "
+        >
+            {
+                navigation.map((item)=> (
+                    <Link
+                        key={item.href}
+                        href={item.href}
+                    >
+                        {item.label}
+                    </Link>
+                ))
+            };
         </nav>
     );
 }

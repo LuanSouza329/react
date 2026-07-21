@@ -1,4 +1,5 @@
 import Button from "../../ui/Button";
+import Container from "@/components/ui/Container";
 
 type HeroProps = {
     name: string,
@@ -19,7 +20,7 @@ export default function Hero({ name, role }: HeroProps) {
             px-6
         ">
 
-            <div>
+            <Container>
                 <p className="
                     text-lg
                     text-gray-500
@@ -69,7 +70,7 @@ export default function Hero({ name, role }: HeroProps) {
 
                 </div>
 
-            </div>
+            </Container>
 
             <div>
                 FOTO
