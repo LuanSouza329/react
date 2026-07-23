@@ -17,7 +17,7 @@ export default function Container({
         <div
             {...props}
             className={cn(
-                "max-w-7x1 max-auto px-6",
+                "max-w-7x1 max-auto px-4",
                 className
             )}
         >

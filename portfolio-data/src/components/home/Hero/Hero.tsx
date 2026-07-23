@@ -1,5 +1,6 @@
 import Button from "../../ui/Button";
 import Container from "@/components/ui/Container";
+import HeroImage from "./HeroImage";
 
 type HeroProps = {
     name: string,
@@ -73,7 +74,7 @@ export default function Hero({ name, role }: HeroProps) {
             </Container>
 
             <div>
-                FOTO
+                <HeroImage />
             </div>
 
         </section>

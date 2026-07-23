@@ -1,5 +1,14 @@
+import Image from "next/image";
 export default function HeroImage(){
     return(
-        <p>HeroImage</p>
+        <Image
+            src="/profile.png"
+            alt="Foto de perfil Luan Souza"
+            width={420}
+            height={420}
+            priority
+        >
+
+        </Image>
     );
 }

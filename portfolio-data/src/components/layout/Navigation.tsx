@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { navigation } from "@/data/navigation";
-import { link } from "fs";
 export default function Navigation() {
     return (
         <nav 
