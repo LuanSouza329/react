@@ -1,5 +1,9 @@
-export default function HeroContent (){
+import HeroSocials from "./HeroSocials";
+
+export default function HeroContent() {
     return (
-        <p>HeroContent</p>
+        <>
+            <HeroSocials />
+        </>
     );
 }

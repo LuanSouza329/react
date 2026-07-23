@@ -1,6 +1,7 @@
 import Button from "../../ui/Button";
 import Container from "@/components/ui/Container";
 import HeroImage from "./HeroImage";
+import HeroContent from "./HeroContent";
 
 type HeroProps = {
     name: string,
@@ -54,6 +55,8 @@ export default function Hero({ name, role }: HeroProps) {
                     leading-8
                 ">
                     Transformando dados em informações para apoiar decisões.
+
+                    <HeroContent />
                 </p>
 
                 <div className="
